@@ -24,7 +24,7 @@ function MealDetails({ meal }) {
   console.log(ingredients);
   return (
     <div className="flex">
-      <img src={meal?.strMealThumb} alt={meal?.strMeal} />
+      <img src={meal?.strMealThumb} alt={meal?.strMeal} className="" />
       <div className="">
         <h1>{meal?.strMeal}</h1>
         <div>{meal?.strTags}</div>
@@ -41,12 +41,7 @@ function MealDetails({ meal }) {
         </div>
 
         <div className="aspect-w-16 aspect-h-9 mt-6">
-          <iframe
-            src={meal?.youtubeUrl}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          <p>{meal?.strYoutube}</p>
         </div>
       </div>
     </div>
