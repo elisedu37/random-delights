@@ -21,14 +21,16 @@ function Home() {
   };
 
   return (
-    <div className="h-screen relative flex justify-center flex-col m-auto gap-4">
+    <div className="h-screen relative flex justify-center flex-col m-auto gap-4 overflow-hidden ">
       <MealDetails meal={mealData?.meals[0]} />
-      <button
-        onClick={handleRandomClick}
-        className="absolute fixed bottom-0  px-4 py-2 rounded-full m-auto"
-      >
-        Random other meal
-      </button>
+      <div className="absolute fixed bottom-0 w-full m-auto flex justify-center">
+        <button
+          onClick={handleRandomClick}
+          className="px-4 py-2 bg-black text-white rounded-t-lg"
+        >
+          Random other meal
+        </button>
+      </div>
     </div>
   );
 }
