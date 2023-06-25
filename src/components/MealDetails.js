@@ -23,10 +23,16 @@ function MealDetails({ meal }) {
 
   console.log(ingredients);
   return (
-    <div className="flex">
-      <img src={meal?.strMealThumb} alt={meal?.strMeal} className="" />
-      <div className="">
-        <h1>{meal?.strMeal}</h1>
+    <div className="h-full flex flex-col sm:flex-row gap-12">
+      <img
+        src={meal?.strMealThumb}
+        alt={meal?.strMeal}
+        className="w-1/2 transform skew-x-12"
+      />
+      <div className="p-6">
+        <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          {meal?.strMeal}
+        </h1>
         <div>{meal?.strTags}</div>
         <div className="md:grid md:grid-cols-2 md:gap-4">
           <div className="my-6">

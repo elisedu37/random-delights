@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // API
 import { fetchMealData } from '../api/themealdb';
+// Composants
 import MealDetails from '../components/MealDetails';
 
 function Home() {
@@ -20,13 +21,13 @@ function Home() {
   };
 
   return (
-    <div className="flex justify-center flex-col m-auto gap-4">
+    <div className="h-screen relative flex justify-center flex-col m-auto gap-4">
       <MealDetails meal={mealData?.meals[0]} />
       <button
         onClick={handleRandomClick}
-        className="fixed bottom-0 left-0 mb-4 bg-blue-500 text-white px-4 py-2 rounded"
+        className="absolute fixed bottom-0  px-4 py-2 rounded-full m-auto"
       >
-        Random
+        Random other meal
       </button>
     </div>
   );

@@ -1,14 +1,8 @@
 import React from 'react';
 import './style.css';
-
-import Header from './components/Header';
+// Composants
 import Home from './pages/Home';
 
 export default function App() {
-  return (
-    <div>
-      <Header />
-      <Home />
-    </div>
-  );
+  return <Home />;
 }
