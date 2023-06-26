@@ -4,21 +4,28 @@ import { fetchMealData } from '../api/themealdb';
 // Composants
 import MealDetails from '../components/MealDetails';
 
+/**
+ * Page d'accueil
+ * @returns {JSX}
+ */
 function Home() {
+  // Stocke les valeurs d'une recette
   const [mealData, setMealData] = useState();
 
+  // Permet de récupérer les datas
   const fetchData = async () => {
     const data = await fetchMealData();
     setMealData(data);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  // Fonction qui se déclanche lorsque l'on clique sur le bouton "find another recipe"
   const handleRandomClick = () => {
     fetchData();
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div

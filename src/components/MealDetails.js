@@ -1,6 +1,12 @@
 import React from 'react';
 
+/**
+ * Component pour chaque recette
+ * @param {JSON} meal valeur de l'api pour une recette
+ * @returns {JSX}
+ */
 function MealDetails({ meal }) {
+  // On regroupe tous les ingrédients et leurs mesures dans un tableau
   const ingredients = [];
   if (meal) {
     Object.entries(meal).forEach(([key, value]) => {
@@ -13,7 +19,7 @@ function MealDetails({ meal }) {
       }
     });
   }
-
+  // Pemet de séparer les tags
   const tags = meal?.strTags?.split(',').map((tag) => tag.trim());
 
   return (
