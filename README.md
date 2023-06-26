@@ -1,3 +1,11 @@
-# random-delights
+# random delights
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/stackblitz-starters-ctpr7k)
+Ce projet a été conçu avec Stackblitz
+
+### Concept :
+
+- un site proposant des recettes aléatoires aux utilisateurs
+
+### API utilisée :
+
+- themealdb

@@ -1,6 +1,12 @@
 import React from 'react';
 
+/**
+ * Component pour chaque recette
+ * @param {JSON} meal valeur de l'api pour une recette
+ * @returns {JSX}
+ */
 function MealDetails({ meal }) {
+  // On regroupe tous les ingrédients et leurs mesures dans un tableau
   const ingredients = [];
   if (meal) {
     Object.entries(meal).forEach(([key, value]) => {
@@ -13,19 +19,35 @@ function MealDetails({ meal }) {
       }
     });
   }
+  // Pemet de séparer les tags
+  const tags = meal?.strTags?.split(',').map((tag) => tag.trim());
+
   return (
-    <div className="h-full flex flex-col sm:flex-row gap-12">
+    <div className="h-full flex flex-col md:flex-row gap-6 md:gap-12">
       <img
         src={meal?.strMealThumb}
         alt={meal?.strMeal}
-        className="w-1/2 transform rounded-r-full p-2 border-[solid] border-black border-t-8 border-b-8 object-cover"
+        className="h-1/2 w-auto md:h-full md:w-1/2 transform rounded-r-full p-2 border-solid border-black border-t-8 border-b-8 object-cover"
       />
       <div className="flex items-center">
-        <div className="px-6 py-12 h-screen overflow-y-scroll">
+        <div className="px-3 py-6 md:px-6 md:py-12 md:h-screen md:overflow-y-scroll">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             {meal?.strMeal}
           </h1>
-          <div>{meal?.strTags}</div>
+          <div>
+            {tags && (
+              <ul className="flex gap-4">
+                {tags.map((tag, index) => (
+                  <li
+                    key={index}
+                    className="inline-flex items-center justify-center px-4 py-2 text-xs font-medium text-gray-900 bg-white rounded "
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <div className="md:grid md:grid-cols-2 md:gap-4">
             <div className="my-6">
               <h2 className="text-4xl font-bold mb-2">Ingredients</h2>
